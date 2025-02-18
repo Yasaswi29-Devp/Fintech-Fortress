@@ -1,0 +1,11 @@
+@CLEAR
+BANK,
+
+FINTECH FORTRESS
+-------------------------
+Login Menu
+
+a. Login to your account
+b. Exit
+
+Enter your choice: 

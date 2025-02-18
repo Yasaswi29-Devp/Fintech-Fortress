@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transactions - Fintech Fortress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="customer-container">
+        <nav class="customer-nav">
+            <h2>Transaction History</h2>
+            <a href="{{ url_for('customer_dashboard') }}" class="back-link">Back to Dashboard</a>
+        </nav>
+        
+        <div class="table-container">
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Details</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction[5] }}</td>
+                        <td>{{ transaction[4] }}</td>
+                        <td>₹{{ transaction[3] }}</td>
+                        <td>
+                            {% if transaction[1] == session['user_id'] %}
+                                {% if transaction[1] == transaction[2] %}
+                                    {{ transaction[4] }}
+                                {% else %}
+                                    To: Acc#{{ transaction[2] }}
+                                {% endif %}
+                            {% else %}
+                                From: Acc#{{ transaction[1] }}
+                            {% endif %}
+                        </td>
+                        <td>₹{{ transaction[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

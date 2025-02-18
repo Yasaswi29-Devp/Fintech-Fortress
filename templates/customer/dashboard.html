@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Dashboard - Fintech Fortress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="customer-container">
+        <nav class="customer-nav">
+            <h2>Welcome, {{ customer[1] }}</h2>
+            <div class="nav-links">
+                <a href="{{ url_for('deposit') }}" class="nav-link">Deposit</a>
+                <a href="{{ url_for('withdraw') }}" class="nav-link">Withdraw</a>
+                <a href="{{ url_for('transfer') }}" class="nav-link">Transfer</a>
+                <a href="{{ url_for('transactions') }}" class="nav-link">Transactions</a>
+                <a href="{{ url_for('logout') }}" class="nav-link logout">Logout</a>
+            </div>
+        </nav>
+        
+        <div class="dashboard-content">
+            <div class="account-info">
+                <h3>Account Information</h3>
+                <p>Account Number: {{ customer[0] }}</p>
+                <p>Balance: ₹{{ customer[6] }}</p>
+                <p>Phone: {{ customer[4] }}</p>
+                <p>SMS Alerts: {{ 'Enabled' if customer[5] == 'Y' else 'Disabled' }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

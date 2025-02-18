@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Close Account - Fintech Fortress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="admin-nav">
+            <h2>Close Account</h2>
+            <a href="{{ url_for('admin_dashboard') }}" class="back-link">Back to Dashboard</a>
+        </nav>
+        
+        <div class="form-container">
+            <form method="POST" class="close-account-form">
+                <div class="form-group">
+                    <label for="account_number">Account Number:</label>
+                    <input type="text" id="account_number" name="account_number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin_password">Admin Password:</label>
+                    <input type="password" id="admin_password" name="admin_password" required>
+                </div>
+                
+                <button type="submit" class="submit-btn danger">Close Account</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
